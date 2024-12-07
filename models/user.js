@@ -1,0 +1,43 @@
+const mongoose = require('mongoose')
+const config = require('../config/config')
+const jwt = require('jsonwebtoken')
+
+
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+
+    },
+    phone: {
+        type: String,
+        required: true,
+
+    },
+    password: {
+        type: String,
+        default: "the_pet_Whisperer@1237896"
+    },
+    role: {
+        type: String,
+        default: 'user'
+    },
+},
+    { timestamps: true }
+)
+
+// code to generated jwt token 
+
+userSchema.methods.getJwtToken = function () {
+    return jwt.sign({ id: this._id }, config.JWT, {
+        expiresIn: '7d'
+    })
+}
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
