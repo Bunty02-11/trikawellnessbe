@@ -87,6 +87,10 @@ const retreatServices = require('./routes/retreatRoutes');
 
 const timeRoutes = require('./routes/timeRoutes')
 
+const faqRoutes = require('./routes/faqRoutes')
+
+const introductionRoutes = require('./routes/introductionRoutes')
+
 app.use('/api', userRoutes);
 app.use('/api', carousel);
 app.use('/api', motivationRoutes);
@@ -100,6 +104,8 @@ app.use('/api', blogRoutes)
 app.use('/api', eventService)
 app.use('/api', retreatServices)
 app.use('/api', yogaService)
+app.use('/api', faqRoutes)
+app.use('/api', introductionRoutes)
 
 
 
