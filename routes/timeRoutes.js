@@ -5,11 +5,11 @@ const { isAuthenticated, authorizeRoles } = require('../middleware/Auth');
 
 
 
-router.post('/create', isAuthenticated, authorizeRoles('admin'), createTime);
+router.post('/create', isAuthenticated, createTime);
 
-router.get('/all', isAuthenticated, getTime);
+router.get('/timeall', getTime);
 
-router.put('/update/:id', isAuthenticated, authorizeRoles('admin'), updateTime);
+router.put('/update/:id', isAuthenticated, updateTime);
 
 router.delete('/delete/:id', isAuthenticated, authorizeRoles('admin'), deleteTime);
 
